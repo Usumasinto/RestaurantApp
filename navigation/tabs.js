@@ -5,13 +5,14 @@ import {
     TouchableOpacity
 } from "react-native";
 import {createBottomTabNavigator, BottomTabBar} from "@react-navigation/bottom-tabs"
-import {Home} from "../screens";
+import {Home, OrderDeliv, Restaurant} from "../screens";
 import {COLORS, icons} from "../constants";
 import Svg, {Path} from 'react-native-svg';
+import { isIphoneX } from "react-native-iphone-x-helper";
 
 const Tab = createBottomTabNavigator();
 const TabBarCustomButtom = ({accessibilityState, children, onPress}) => {
-    var isSelected = accessibilityState.isSelected;
+    var isSelected = accessibilityState.selected;
     if (isSelected){
         return (
             <View style={{ flex: 1, alignItems: "center" }}>
@@ -62,20 +63,55 @@ const TabBarCustomButtom = ({accessibilityState, children, onPress}) => {
         )
     }
 }
+
+const CustomTabBar = (props) => {
+    if (isIphoneX()) {
+        return (
+            <View>
+                <View
+                    style = {{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        height: 30,
+                        backgroundColor: COLORS.white
+                    }}
+                >
+                
+                </View>
+                <BottomTabBar {...props.props}/>
+            </View>
+    
+    ) 
+    } else {
+        <BottomTabBar {...props.props}/>
+    }  
+}
 const Tabs = () => {
     return (
         <Tab.Navigator
-        tabBarOptions={{
-            showLabel: false,
-            style: {
-                borderTopWidth: 0,
-                elevation: 0,
-                backgroundColor: "transparent"
+            screenOptions = {{
+                tabBarShowLabel: false , 
+                style:{
+                    position: 'absolute',
+                    left: 0,
+                    bottom: 0,
+                    right: 0,
+                    borderTopWidth: 0,
+                    backgroundColor: "transparent",
+                    elevation: 0
+                }
+            }}
+            tabBar={(props) => (
+                <CustomTabBar
+                props={props}
+                />
+            )
             }
-        }}
         >
             <Tab.Screen
-                name="Home"
+                name="Inicio"
                 component={Home}
                 options={{
                     tabBarIcon: ({focused}) => (
@@ -84,7 +120,7 @@ const Tabs = () => {
                             resizeMode="contain"
                             style={{
                                 width: 25,
-                                heigth: 25,
+                                height: 25,
                                 tintColor: focused ? COLORS.primary : COLORS.secondary
                             }}
                         />
@@ -99,7 +135,7 @@ const Tabs = () => {
 
             <Tab.Screen
                 name="Search"
-                component={Home}
+                component={OrderDeliv}
                 options={{
                     tabBarIcon: ({focused}) => (
                         <Image
@@ -107,7 +143,7 @@ const Tabs = () => {
                             resizeMode="contain"
                             style={{
                                 width: 25,
-                                heigth: 25,
+                                height: 25,
                                 tintColor: focused ? COLORS.primary : COLORS.secondary
                             }}
                         />
@@ -122,7 +158,7 @@ const Tabs = () => {
 
             <Tab.Screen
                 name="Like"
-                component={Home}
+                component={Restaurant}
                 options={{
                     tabBarIcon: ({focused}) => (
                         <Image
@@ -130,7 +166,7 @@ const Tabs = () => {
                             resizeMode="contain"
                             style={{
                                 width: 25,
-                                heigth: 25,
+                                height: 25,
                                 tintColor: focused ? COLORS.primary : COLORS.secondary
                             }}
                         />
@@ -145,7 +181,7 @@ const Tabs = () => {
 
             <Tab.Screen
                 name="User"
-                component={Home}
+                component={OrderDeliv}
                 options={{
                     tabBarIcon: ({focused}) => (
                         <Image
@@ -153,7 +189,7 @@ const Tabs = () => {
                             resizeMode="contain"
                             style={{
                                 width: 25,
-                                heigth: 25,
+                                height: 25,
                                 tintColor: focused ? COLORS.primary : COLORS.secondary
                             }}
                         />
@@ -168,4 +204,4 @@ const Tabs = () => {
         </Tab.Navigator>
     )
 }
-export default Tabs;
+export default Tabs

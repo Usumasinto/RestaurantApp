@@ -1,10 +1,10 @@
 
-import Home from './home'
-import Restaurant from './Restaurant'
-import OrderDeliv from './OrderDeliv'
+import Home from "./Home"
+import Restaurant from "./Restaurant"
+import OrderDeliv from "./OrderDeliv"
 
 export {
     Home,
     Restaurant,
-    OrderDeliv
+    OrderDeliv,
 }

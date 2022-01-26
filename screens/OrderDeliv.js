@@ -7,7 +7,7 @@ import {
 const OrderDeliv = () => {
     return (
         <View>
-            <Text>Home</Text>
+            <Text></Text>
         </View>
     )
 }
