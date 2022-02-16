@@ -92,7 +92,7 @@ const Tabs = () => {
     return (
         <Tab.Navigator
             screenOptions = {{
-                tabBarShowLabel: false , 
+                tabBarShowLabel: false, 
                 style:{
                     position: 'absolute',
                     left: 0,
@@ -100,7 +100,7 @@ const Tabs = () => {
                     right: 0,
                     borderTopWidth: 0,
                     backgroundColor: "transparent",
-                    elevation: 0
+                    elevation: 0,
                 }
             }}
             tabBar={(props) => (
@@ -111,7 +111,7 @@ const Tabs = () => {
             }
         >
             <Tab.Screen
-                name="Inicio"
+                name="Home"
                 component={Home}
                 options={{
                     tabBarIcon: ({focused}) => (
@@ -136,6 +136,7 @@ const Tabs = () => {
             <Tab.Screen
                 name="Search"
                 component={OrderDeliv}
+                
                 options={{
                     tabBarIcon: ({focused}) => (
                         <Image

@@ -7,16 +7,19 @@ const Stack = createStackNavigator()
 const App = () => {
   return (
     <NavigationContainer>
+      
       <Stack.Navigator
         screenOptions= {{
           headerShown: false,
         }}
         initialRouteName={"index"}
+        
       >
-        <Stack.Screen name="Home" component={Tabs} />
+        <Stack.Screen name="Home" component={Home,Tabs} />
         <Stack.Screen name="Restaurant" component={Tabs} />
         <Stack.Screen name="OrderDeliv" component={Tabs} />
       </Stack.Navigator>
+      
     </NavigationContainer>
   )
 }
