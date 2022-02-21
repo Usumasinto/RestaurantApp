@@ -92,6 +92,7 @@ const Tabs = () => {
     return (
         <Tab.Navigator
             screenOptions = {{
+                headerShown:false,
                 tabBarShowLabel: false, 
                 style:{
                     position: 'absolute',
@@ -114,6 +115,7 @@ const Tabs = () => {
                 name="Home"
                 component={Home}
                 options={{
+                    
                     tabBarIcon: ({focused}) => (
                         <Image
                             source={icons.cutlery}
