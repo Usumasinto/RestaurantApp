@@ -180,6 +180,7 @@ const Tabs = () => {
                         />
                     )
                 }}
+        
             />
 
             <Tab.Screen

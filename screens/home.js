@@ -10,7 +10,10 @@ import {
 } from "react-native";
 
 import { icons, images, SIZES, COLORS, FONTS } from '../constants'
-const Home = ({navigation}) => {
+
+const Home = ({ navigation }) => {
+
+    // Dummy Datas
 
     const initialCurrentLocation = {
         streetName: "Kuching",
@@ -325,8 +328,10 @@ const Home = ({navigation}) => {
             ]
 
         }
+
+
     ]
-   
+
     const [categories, setCategories] = React.useState(categoryData)
     const [selectedCategory, setSelectedCategory] = React.useState(null)
     const [restaurants, setRestaurants] = React.useState(restaurantData)
@@ -350,6 +355,7 @@ const Home = ({navigation}) => {
 
         return ""
     }
+
     function renderHeader() {
         return (
             <View style={{ flexDirection: 'row', height: 50 }}>
@@ -404,6 +410,7 @@ const Home = ({navigation}) => {
             </View>
         )
     }
+
     function renderMainCategories() {
         const renderItem = ({ item }) => {
             return (
@@ -452,6 +459,7 @@ const Home = ({navigation}) => {
                 </TouchableOpacity>
             )
         }
+
         return (
             <View style={{ padding: SIZES.padding * 2 }}>
                 <Text style={{ ...FONTS.h1 }}>Main</Text>
@@ -468,6 +476,7 @@ const Home = ({navigation}) => {
             </View>
         )
     }
+
     function renderRestaurantList() {
         const renderItem = ({ item }) => (
             <TouchableOpacity
@@ -584,7 +593,7 @@ const Home = ({navigation}) => {
     }
 
     return (
-        <SafeAreaView style={styles.container}> 
+        <SafeAreaView style={styles.container}>
             {renderHeader()}
             {renderMainCategories()}
             {renderRestaurantList()}
@@ -609,4 +618,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Home;
+export default Home
